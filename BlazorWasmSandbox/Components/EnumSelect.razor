@@ -1,12 +1,8 @@
-﻿@typeparam TEnum where TEnum: Enum
+﻿@typeparam TEnum where TEnum: struct
 
-<select @bind="SelectedValue">
+<select @bind="SelectedValue" @oninput="OnSelectedValueChanged">
     @foreach (var v in Enum.GetValues(typeof(TEnum)))
     {
         <option value="@v">@v</option>
     }
 </select>
-
-@code {
-    [Parameter] public TEnum SelectedValue { get; set; } = default!;
-}

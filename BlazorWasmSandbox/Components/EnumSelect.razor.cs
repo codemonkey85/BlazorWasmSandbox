@@ -9,7 +9,7 @@ public partial class EnumSelect<TEnum> where TEnum : struct
     public EventCallback<TEnum> SelectedValueChanged { get; set; }
 
     private Task OnSelectedValueChanged(ChangeEventArgs e) =>
-        Enum.TryParse(e?.Value?.ToString() ?? string.Empty, true, out TEnum enumValue)
+        Enum.TryParse(e?.Value?.ToString(), true, out TEnum enumValue)
             ? SelectedValueChanged.InvokeAsync(enumValue)
             : SelectedValueChanged.InvokeAsync();
 }

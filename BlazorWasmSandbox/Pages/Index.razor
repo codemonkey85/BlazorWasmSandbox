@@ -3,3 +3,15 @@
 <h1>Hello, world!</h1>
 
 <CarouselComponent />
+
+<h3>Enum Select Tests</h3>
+
+<EnumSelect TEnum="Enums.Shapes" />
+<EnumSelect SelectedValue="@Shape" />
+
+@*<EnumSelect TEnum="Enums.Shapes" @bind-SelectedValue="@Shape" />*@
+@*<EnumSelect @bind-SelectedValue="@Shape" />*@
+
+@code {
+    Enums.Shapes Shape { get; set; }
+}
